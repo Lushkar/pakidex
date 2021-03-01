@@ -1,2 +1,4 @@
 workflow.md
 images/
+.config/
+node_modules/
