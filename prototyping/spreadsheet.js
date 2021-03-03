@@ -1,5 +1,5 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
-const creds = require('./.config/client_secret.json');
+const creds = require('./../.config/client_secret.json');
 
 function printAnimal(animal) {
     console.log(`Order: ${animal.Order}`);
