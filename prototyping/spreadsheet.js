@@ -20,9 +20,7 @@ async function accessSpreadsheet() {
     await doc.loadInfo();
 
     const sheet = doc.sheetsByIndex[0];
-    
     const rows = await sheet.getRows();
-    // console.log(rows[1]);
     
     rows.forEach(row => {
         printAnimal(row);
