@@ -4,9 +4,11 @@
   "description": "An web app like a pokedex but for the animals of pakistan",
   "main": "server.js",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "google-spreadsheet": "^3.1.15",
-    "googleapis": "^39.2.0"
+    "googleapis": "^39.2.0",
+    "mongoose": "^5.11.18"
   },
   "devDependencies": {},
   "scripts": {
