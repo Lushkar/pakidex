@@ -1,8 +1,12 @@
 const express = require('express');
-// const db = require('./models/db');
+const db = require('./models/db');
 const path = require('path');
 
 const app = express();
+
+let animalRouter = require("./routes/api/animalRouter");
+app.use(express.json());
+app.use('/api/animals', animalRouter)
 
 const port = process.env.PORT || 5000;
 
