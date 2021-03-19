@@ -5,8 +5,15 @@ const path = require('path');
 const app = express();
 
 let animalRouter = require("./routes/api/animalRouter");
+
+
 app.use(express.json());
 app.use('/api/animals', animalRouter)
+
+app.use(express.static(path.join(__dirname, 'images/primates')))
+app.use(express.static(path.join(__dirname, 'images/carnivora')))
+
+
 
 const port = process.env.PORT || 5000;
 
