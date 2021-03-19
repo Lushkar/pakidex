@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import PokeIndex from './pokeindex'
 
-
-class Home extends Component {
+class Main extends Component {
     state = {
-        articles: []
+        animals: []
     }
+    
     componentDidMount() {
         axios.get('/api/animals')
             .then( res => {
-                this.setState({articles: res.data});
+                this.setState({animals: res.data});
             })
             .catch(err => console.error(err));
     }
@@ -19,9 +20,8 @@ class Home extends Component {
         return (
             <React.Fragment>
                 {
-                    this.state.articles.map((article, i) => {
-                        // return <Card key={i} article={article}/>
-                        return <p>{article.order}</p>
+                    this.state.animals.map((animal, i) => {
+                        return <PokeIndex key={i} animal={animal}/> 
                     })
                 }
             </React.Fragment>
@@ -29,4 +29,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default Main;
