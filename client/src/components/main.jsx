@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Card from './Card';
+
 
 class Home extends Component {
     state = {
         articles: []
     }
     componentDidMount() {
-        axios.get('/api/articles')
+        axios.get('/api/animals')
             .then( res => {
                 this.setState({articles: res.data});
             })
@@ -20,7 +20,8 @@ class Home extends Component {
             <React.Fragment>
                 {
                     this.state.articles.map((article, i) => {
-                        return <Card key={i} article={article}/>
+                        // return <Card key={i} article={article}/>
+                        return <p>{article.order}</p>
                     })
                 }
             </React.Fragment>

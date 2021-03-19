@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-let Article = require("../../models/animal.model")
+// The animal database
+let Animals = require("../../models/animal.model")
 
 /**
- * @baseURI - /api/articles
+ * @baseURI - /api/animals
  */
+
  router.get('/', async (req, res) => {
     console.log(`Getting a new GET request`)
-    let query = Article.find({}, {}, {
+    let query = Animals.find({}, {}, {
         sort: {
             createdAt: -1
         }
@@ -20,7 +22,18 @@ let Article = require("../../models/animal.model")
         else 
             console.error(err);
     })
+})
 
+
+router.get('/:id', async (req, res) => {
+    console.log("Sending a single animal's info");
+    let query = Animals.findById(req.params.id);
+    query.exec((err, animal) => {
+        if (!err)
+            res.json(animal)
+        else
+            console.error(err)
+    })
 })
 
 module.exports = router;
