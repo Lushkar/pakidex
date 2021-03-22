@@ -1,18 +1,20 @@
 const express = require('express');
 const db = require('./models/db');
 const path = require('path');
-
+const cors = require('cors');
 const app = express();
 
 let animalRouter = require("./routes/api/animalRouter");
 
 
 app.use(express.json());
+app.use(cors());
 app.use('/api/animals', animalRouter)
 
-app.use(express.static(path.join(__dirname, 'images/primates')))
-app.use(express.static(path.join(__dirname, 'images/carnivora')))
-
+// Adding Image paths
+app.use("/images/primates", express.static(path.join(__dirname, '/images/primates')));
+app.use(`images/carnivora`, express.static(path.join(__dirname, 'images/carnivora')));
+// app.use(express.static(path.join(__dirname, `images`)));
 
 
 const port = process.env.PORT || 5000;
