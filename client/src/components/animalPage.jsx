@@ -81,7 +81,7 @@ class AnimalPage extends Component{
         
     }
 
-    displayPhotos = () => {
+    displayPhoto = () => {
         return <img src={this.state.photo}></img>
     }
     render() {
@@ -89,7 +89,7 @@ class AnimalPage extends Component{
         return(
             <div className='article'>
                 <h1>{this.state.scientificName}</h1>
-                <section>{this.displayPhotos()}</section>
+                <section>{this.displayPhoto()}</section>
             </div>
         )
     }

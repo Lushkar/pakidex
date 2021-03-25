@@ -11,7 +11,9 @@
     "googleapis": "^39.2.0",
     "mongoose": "^5.11.18"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
   "scripts": {
     "server": "node server.js",
     "spreadsheet": "node prototyping/spreadsheet.js"
