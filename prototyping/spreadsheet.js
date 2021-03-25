@@ -77,5 +77,5 @@ async function uploadToDatabase() {
     })
     // mongoose.disconnect();
 }
-uploadToDatabase()
+uploadToDatabase();
 

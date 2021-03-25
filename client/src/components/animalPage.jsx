@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import PhotoContainer from './photoContainer';
 
 
 
@@ -17,43 +17,35 @@ class AnimalPage extends Component{
         };
     }
 
-    // state = {
-    //     order: '',
-    //     suborder: '',
-    //     scientificName: '',
-    //     RLT: '',
-    //     photo: []
-    // }
-
     componentDidMount() {
         const url = '/api' + window.location.pathname;
         axios.get(url)
             .then(res => {
-                console.log(res)
                 const {
                     order, 
                     suborder, 
-                    // family, 
-                    // genus, 
+                    family, 
+                    genus, 
                     scientificName, 
-                    // commonName, 
-                    // location, 
+                    commonName, 
+                    location, 
                     RLT, 
-                    // attribution, 
-                    // link
+                    attribution, 
+                    link
                 } = res.data;
 
                 this.setState({
                     order, 
                     suborder, 
-                    // family, 
-                    // genus, 
+                    family, 
+                    genus, 
                     scientificName, 
-                    // commonName, 
-                    // location, 
+                    commonName, 
+                    location, 
                     RLT
                 });
 
+                // This thing is gonna be a pain in the ass when I push to production
                 // const imgURL = `/images/${this.state.order}/${this.state.scientificName.replace(/\s/g, '')}.jpg`;
                 // const imgURL = `/images/primates/${this.state.scientificName.replace(/\s/g, '')}.jpg`;
                 const imgURL = `http://localhost:5000/images/primates/Kashmirgraylangur.jpg`;
@@ -75,21 +67,15 @@ class AnimalPage extends Component{
                 //     .then( res => {
                 //         console.log(res)
                 //     })
-            })
-        //     .then(this.setImage())
-
-        
+            })    
     }
 
-    displayPhoto = () => {
-        return <img src={this.state.photo}></img>
-    }
     render() {
         
         return(
             <div className='article'>
                 <h1>{this.state.scientificName}</h1>
-                <section>{this.displayPhoto()}</section>
+                <PhotoContainer url={this.state.photo}/>
             </div>
         )
     }
