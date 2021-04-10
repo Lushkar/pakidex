@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import PokeIndex from './pokeindex'
+import PokeIndex from './pokeindex';
+import Header from './header';
+
 
 class Main extends Component {
     state = {
@@ -19,6 +21,7 @@ class Main extends Component {
     render() {
         return (
             <React.Fragment>
+                <Header />
                 {
                     this.state.animals.map((animal, i) => {
                         return <PokeIndex key={i} animal={animal}/> 

@@ -13,7 +13,9 @@ app.use('/api/animals', animalRouter)
 
 // Adding Image paths
 app.use("/images/primates", express.static(path.join(__dirname, '/images/primates')));
-app.use(`images/carnivora`, express.static(path.join(__dirname, 'images/carnivora')));
+app.use(`/images/carnivora`, express.static(path.join(__dirname, '/images/carnivora')));
+app.use(`/images/chiroptera`, express.static(path.join(__dirname, '/images/chiroptera')));
+app.use(`/images/rodentia`, express.static(path.join(__dirname, `/images/rodentia`)))
 // app.use(express.static(path.join(__dirname, `images`)));
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
+import './scss/index.scss';
 import Main from './components/main';
 import AnimalPage from './components/animalPage';
 
